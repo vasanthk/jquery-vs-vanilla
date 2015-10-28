@@ -1,5 +1,7 @@
 /**
  * Get JSON
+ *
+ * Support: IE9+
  */
 
 (function ($) {
