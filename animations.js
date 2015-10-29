@@ -1,5 +1,9 @@
 /**
- * Effects: fadeIn()
+ * Effects:
+ * fadeIn()
+ * hide()
+ * show()
+ *
  */
 
 (function ($) {
@@ -31,3 +35,19 @@
   fadeIn(el);
 
 })(jQuery);
+
+(function($) {
+  // jQuery
+  $(el).hide();
+
+  // Vanilla JS
+  el.style.display = 'none';
+
+  // jQuery
+  $(el).show();
+
+  // Vanilla JS
+  el.style.display = '';
+
+})(jQuery);
+
