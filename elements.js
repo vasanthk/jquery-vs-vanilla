@@ -188,3 +188,12 @@
   }
 })(jQuery);
 
+// MATCHES
+(function ($) {
+  // jQuery
+  $(el).is($(otherEl));
+
+  // Vanilla JS
+  el === otherEl;
+})(jQuery);
+
