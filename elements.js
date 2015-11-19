@@ -197,3 +197,46 @@
   el === otherEl;
 })(jQuery);
 
+// MATCHES SELECTOR
+(function ($) {
+  // jQuery
+  $(el).is('.my-class');
+
+  // Vanilla JS
+  var matches = function(el, selector) {
+    return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
+  };
+  matches(el, '.my-class');
+
+})(jQuery);
+
+// NEXT
+(function ($) {
+  // jQuery
+  $(el).next();
+
+  // Vanilla JS
+  el.nextElementSibling;
+})(jQuery);
+
+// OFFSET
+(function ($) {
+  // jQuery
+  $(el).offset();
+
+  // Vanilla JS
+  var rect = el.getBoundingClientRect();
+  var offset = {
+    top: rect.top + document.body.scrollTop,
+    left: rect.left + document.body.scrollLeft
+  };
+})(jQuery);
+
+// OFFSET PARENT
+(function ($) {
+  // jQuery
+  $(el).offsetParent();
+
+  // Vanilla JS
+  el.offsetHeight || el;
+})(jQuery);
