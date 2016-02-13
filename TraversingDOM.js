@@ -191,3 +191,12 @@ var first = document.body.children[0];
 var last = document.body.children[1];
 document.body.insertBefore(last, first);
 // The removal occurs automatically when insertion methods are called for a node which already has a parent.
+
+// insertAter custom function
+var elem = document.createElement('div');
+elem.innerHTML = '**Child**';
+function insertAfter(elem, refElem) {
+  return elem.parentNode.insertBefore(elem, refElem.nextSibling);
+}
+insertAfter(elem, document.body.firstChild);
+insertAfter(elem, document.body.lastChild);
