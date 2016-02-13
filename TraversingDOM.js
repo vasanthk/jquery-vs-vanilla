@@ -200,3 +200,15 @@ function insertAfter(elem, refElem) {
 }
 insertAfter(elem, document.body.firstChild);
 insertAfter(elem, document.body.lastChild);
+
+// Gotcha
+// For an arbitrary document, we do the following:
+var aList1 = document.getElementsByTagName('a');
+var aList2 = document.querySelectorAll('a');
+document.body.appendChild(document.createElement('a'));
+alert(aList1.length - aList2.length);
+
+// What will be the output? Why?
+//   Solution
+//   The output will be 1, because getElementsByTagName is a live collection, which gets autopopulated with the new a. It’s length increases by 1.
+//Contrary to this, querySelector returns a static list of nodes. It referenes same elements no matter what we do with the document. So, it’s length remains the same.
