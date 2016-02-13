@@ -5,14 +5,14 @@
  * http://javascript.info/tutorial/traversing-dom
  */
 
-// Root element
+// ROOT ELEMENT
 console.log(document.documentElement);
 
 // In the world of DOM, an “element not found” or “no such element” is always null.
 // It is impossible to reference elements that are not yet rendered at the time of script execution.
 // For eg. if you access documnt.body in <head> -- it returns null, since the <body> is not yet loaded.
 
-// Child Elements
+// CHILD ELEMENTS
 
 // childNodes
 // All child nodes are referenced including whitespace ones.
@@ -34,7 +34,7 @@ console.log(document.body.parentNode);
 console.log(document.body.previousElementSibling);
 console.log(document.body.nextElementSibling);
 
-// Structure and content properties
+// STRUCTURE AND CONTENT PROPERTIES
 
 // nodeType
 // The most important ones are ELEMENT_NODE with number 1 and TEXT_NODE, which has number 3.
@@ -63,7 +63,7 @@ document.body.innerHTML += "How you doing?";
 // eg. text nodes and comments
 document.body.childNodes[i].nodeValue = 'Test';
 
-// Properties
+// PROPERTIES
 
 // DOM node is an object. So it can store custom properties and methods just like any JavaScript object.
 // Custom DOM properties:
@@ -82,7 +82,7 @@ for (var key in document.body) {
 }
 alert(list.join('\n'));
 
-// Attributes
+// ATTRIBUTES
 
 // DOM nodes provide access to HTML attributes using the following standard methods:
 // elem.hasAttribute(name) - checks if the attribute exists
@@ -100,7 +100,7 @@ alert(div.getAttribute('ABOUT')); // case insensitive
 div.setAttribute('Test', 123);
 alert(document.body.innerHTML);
 
-// Properties and attributes synchronization.
+// PROPERTIES AND ATTRIBUTES SYNCHRONIZATION.
 
 // Every type of DOM nodes has standard properties.
 // Standard DOM properties are synchronized with attributes.
