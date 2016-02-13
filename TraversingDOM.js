@@ -179,6 +179,7 @@ div.insertBefore(span, div.firstChild);
 elem.insertBefore(newElem, null); // same as
 elem.appendChild(newElem);
 
+// Removing nodes
 // There are two main methods for removing nodes from DOM:
 // parentElem.removeChild(elem) - Remove the elem from the children of parentElem.
 // parentElem.replaceChild(elem, currentElem) - Replace the child element of parentElem, referenced by currentElem with the elem.
