@@ -2,7 +2,7 @@
  * Traversing DOM Elements
  *
  * @Reference:
- * http://javascript.info/tutorial/traversing-dom
+ * http://javascript.info/tutorial/dom
  */
 
 // ROOT ELEMENT
@@ -153,3 +153,40 @@ var span = document.body.children[0];
 alert(span.attributes['style'].value);  // "color:blue;"
 alert(span.attributes['id'].value);  // "my"
 
+// MODIFYING THE DOCUMENT
+
+// Creating elements
+// 1) Creates a new DOM element of type node:
+var div = document.createElement('div');
+// 2) Creates a new DOM element of type text:
+var textElem = document.createTextNode('Robin was here');
+// Cloning
+// An element can also be cloned:
+textElem.cloneNode(true); //Clones an element deeply, with all descendants.
+textElem.cloneNode(false); //Clones an element only, with attributes, but without children.
+
+// Adding elements
+// To do something with the element, you need to call the corresponding method of its parent:
+document.body.appendChild(textElem); //Appends elem to the children of parentElem.
+
+// parentElem.insertBefore(elem, nextSibling)
+// Inserts elem into the children of parentElem before the element nextSibling.
+var div = document.body.children[0];
+var span = document.createElement('span');
+span.innerHTML = 'A new span!';
+div.insertBefore(span, div.firstChild);
+// Gotcha: insertBefore with second argument null works as appendChild.
+elem.insertBefore(newElem, null); // same as
+elem.appendChild(newElem);
+
+// There are two main methods for removing nodes from DOM:
+// parentElem.removeChild(elem) - Remove the elem from the children of parentElem.
+// parentElem.replaceChild(elem, currentElem) - Replace the child element of parentElem, referenced by currentElem with the elem.
+
+// Note: If you want to move an element, you don’t have to remove it first.
+// elem.appendChild/insertBefore remove elem from it’s previous place automatically.
+// The following example moves the last child to the top of children list:
+var first = document.body.children[0];
+var last = document.body.children[1];
+document.body.insertBefore(last, first);
+// The removal occurs automatically when insertion methods are called for a node which already has a parent.
