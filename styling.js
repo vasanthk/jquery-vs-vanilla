@@ -82,3 +82,43 @@ function isHidden(elem) {
 //offsetWidth/offsetHeight - the “outer” width/height of the box as seen from outside, excluding margins.
 //offsetParent - the nearest table-cell, body for static positioning or the nearest positioned element for other positioning types.
 //offsetLeft/offsetTop - the position in pixels of top-left corner of the box related to it’s offsetParent.
+
+// elem.getBoundingClientRect()
+// It returns a rectangle which encloses the element. The rectangle is given as an object with properties top, left, right, bottom.
+// Gotcha:
+// The coordinates are given relative to `window`, not the document**. For example, if you scroll this page,
+// so that the button goes to the window top, then its `top` coordinate becomes close to `0`, because it is given relative to window.
+// To calculate coordinates relative to the document that, we need to take page scroll into account.
+function showRect(elem) {
+  var r = elem.getBoundingClientRect();
+  alert("Top/Left: " + r.top + " / " + r.left);
+  alert("Right/Bottom: " + r.right + " / " + r.bottom);
+}
+
+// Coordinate calculator
+//The steps are:
+//  1) Get the enclosing rectangle.
+//  2) Calculate the page scroll. All browsers except IE<9 support `pageXOffset/pageYOffset`, and in IE when DOCTYPE is set, the scroll can be taken from documentElement(<html>), otherwise from `body` - so we take what we can.
+//  3) The document (`html` or `body`) can be shifted from left-upper corner in IE. Get the shift.
+//  4) Add scrolls to window-relative coordinates and subtract the shift of `html/body` to get coordinates in the whole document.
+function getOffsetRect(elem) {
+  // (1)
+  var box = elem.getBoundingClientRect();
+
+  var body = document.body;
+  var docElem = document.documentElement;
+
+  // (2)
+  var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+  var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+
+  // (3)
+  var clientTop = docElem.clientTop || body.clientTop || 0;
+  var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+  // (4)
+  var top = box.top + scrollTop - clientTop;
+  var left = box.left + scrollLeft - clientLeft;
+
+  return {top: Math.round(top), left: Math.round(left)};
+}
