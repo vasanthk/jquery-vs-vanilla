@@ -1,5 +1,5 @@
 /**
- * Traversing DOM Elements
+ * DOM API
  *
  * @Reference:
  * http://javascript.info/tutorial/dom
