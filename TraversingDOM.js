@@ -212,3 +212,39 @@ alert(aList1.length - aList2.length);
 //   Solution
 //   The output will be 1, because getElementsByTagName is a live collection, which gets autopopulated with the new a. It’s length increases by 1.
 //Contrary to this, querySelector returns a static list of nodes. It referenes same elements no matter what we do with the document. So, it’s length remains the same.
+
+// TABLE
+//<table>
+//  <tr> <td>one</td>   <td>two</td>  </tr>
+//  <tr> <td>three</td> <td>four</td> </tr>
+//</table>
+
+var table = document.body.children[0];
+alert(table.rows[0].cells[0].innerHTML); // "one"
+
+// FORMS
+
+//Select option
+//<form name="my">
+//  <select name="genre">
+//    <option name="blues" value="blues">Soft blues</option>
+//    <option name="rock" value="rock">Hard rock</option>
+//  </select>
+//</form>
+var form = document.forms.my;
+var select = form.elements.genre;
+var value = select.options[select.selectedIndex].value;
+alert(value); // blues
+
+// The SELECT also provides selectedIndex property which keeps the index of the selected option. Useful if the select is not multiple.
+//<form name="temp">
+//  <select name="genre">
+//    <option name="blues" value="blues">Soft blues</option>
+//    <option name="rock" value="rock">Hard rock</option>
+//  </select>
+//</form>
+
+var form = document.forms.temp;
+var select = form.elements.genre;
+var value = select.options[select.selectedIndex].value;
+alert(value); // blues
