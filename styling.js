@@ -3,6 +3,7 @@
  *
  * @Reference:
  * http://javascript.info/tutorial/view-and-position
+ * http://stackoverflow.com/a/21064102/1672655
  */
 
 // className
