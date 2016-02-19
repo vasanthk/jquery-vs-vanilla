@@ -10,7 +10,7 @@ console.log(document.documentElement);
 
 // In the world of DOM, an “element not found” or “no such element” is always null.
 // It is impossible to reference elements that are not yet rendered at the time of script execution.
-// For eg. if you access documnt.body in <head> -- it returns null, since the <body> is not yet loaded.
+// For eg. if you access document.body in <head> -- it returns null, since the <body> is not yet loaded.
 
 // CHILD ELEMENTS
 
@@ -55,7 +55,7 @@ console.log(document.body.tagName); // BODY
 // But what actually is done:
 // 1) Old content is wiped
 // 2) The new value innerHTML is parsed and inserted.
-document.body.innerHTML += "<div>Hi <img src='smile.gif'/> !</div>"
+document.body.innerHTML += "<div>Hi <img src='smile.gif'/> !</div>";
 document.body.innerHTML += "How you doing?";
 
 // nodeValue
@@ -192,7 +192,7 @@ var last = document.body.children[1];
 document.body.insertBefore(last, first);
 // The removal occurs automatically when insertion methods are called for a node which already has a parent.
 
-// insertAter custom function
+// insertAfter custom function
 var elem = document.createElement('div');
 elem.innerHTML = '**Child**';
 function insertAfter(elem, refElem) {
@@ -209,9 +209,9 @@ document.body.appendChild(document.createElement('a'));
 alert(aList1.length - aList2.length);
 
 // What will be the output? Why?
-//   Solution
-//   The output will be 1, because getElementsByTagName is a live collection, which gets autopopulated with the new a. It’s length increases by 1.
-//Contrary to this, querySelector returns a static list of nodes. It referenes same elements no matter what we do with the document. So, it’s length remains the same.
+// Solution
+// The output will be 1, because getElementsByTagName is a live collection, which gets auto populated with the new a. It’s length increases by 1.
+// Contrary to this, querySelector returns a static list of nodes. It references same elements no matter what we do with the document. So, it’s length remains the same.
 
 // TABLE
 //<table>
