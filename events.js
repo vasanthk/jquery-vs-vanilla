@@ -3,6 +3,7 @@
  *
  * @Reference:
  * http://gomakethings.com/ditching-jquery/#event-listeners
+ * http://www.quirksmode.org/dom/events/index.html
  */
 
 
