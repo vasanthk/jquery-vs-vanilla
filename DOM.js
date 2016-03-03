@@ -3,6 +3,7 @@
  *
  * @Reference:
  * http://javascript.info/tutorial/dom
+ * http://www.quirksmode.org/dom/
  */
 
 // ROOT ELEMENT
@@ -171,6 +172,7 @@ document.body.appendChild(textElem); //Appends elem to the children of parentEle
 
 // parentElem.insertBefore(elem, nextSibling)
 // Inserts elem into the children of parentElem before the element nextSibling.
+// Link: http://stackoverflow.com/a/2007473/1672655
 var div = document.body.children[0];
 var span = document.createElement('span');
 span.innerHTML = 'A new span!';
